@@ -1,0 +1,186 @@
+/* Grid View Styles */
+.file-list.view-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: 10px;
+    padding: 14px;
+    align-content: start;
+}
+
+.file-list.view-icons .file-item {
+    flex-direction: column;
+    height: 108px;
+    padding: 10px 8px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 0.5px solid transparent;
+    margin: 0;
+}
+
+.file-list.view-icons .file-item:hover {
+    border-color: var(--border-subtle);
+}
+
+.file-list.view-icons .file-item.selected {
+    border-color: rgba(10, 132, 255, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(10, 132, 255, 0.24);
+}
+
+.file-list.view-icons .file-item .fi-icon {
+    margin-right: 0;
+    margin-bottom: 7px;
+    width: 44px;
+    height: 44px;
+}
+
+.file-list.view-icons .file-item .fi-icon svg {
+    width: 44px;
+    height: 44px;
+}
+
+.file-list.view-icons .file-item .fi-details {
+    align-items: center;
+    width: 100%;
+}
+
+.file-list.view-icons .file-item .fi-name {
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.file-list.view-icons .file-item .fi-meta,
+.file-list.view-icons .file-item .fi-ext,
+.file-list.view-icons .file-item .fi-size {
+    display: none; /* Hide metadata in grid view to keep it clean */
+}
+
+/* Transfer Modal Styles (OpenMTP style) */
+.transfer-modal-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.transfer-modal {
+    width: 420px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-prominent);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.transfer-modal-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.transfer-modal-header h3 {
+    margin-left: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.transfer-modal-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.transfer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.transfer-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.transfer-label.file-name {
+    color: var(--text-primary);
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transfer-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.transfer-value.speed {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.progress-bar-container {
+    height: 6px;
+    background: var(--border-subtle);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+}
+
+.progress-bar-fill.active-glow {
+    box-shadow: 0 0 10px var(--accent-glow);
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+}
+
+.transfer-modal-footer {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0,0,0,0.02);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.cancel-btn {
+    padding: 6px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-prominent);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    background: var(--bg-hover);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
